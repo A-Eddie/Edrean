@@ -1,6 +1,20 @@
 import nodemailer from 'nodemailer';
 
 /**
+ * Escape HTML to prevent injection
+ */
+const escapeHtml = (text) => {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  };
+  return text.replace(/[&<>"']/g, (m) => map[m]);
+};
+
+/**
  * Create email transporter based on provider
  * Supports Gmail, SendGrid, and other SMTP services
  */
@@ -151,18 +165,4 @@ Nairobi, Kenya
     // Don't throw - this shouldn't block the main submission
     return { success: false, error: error.message };
   }
-};
-
-/**
- * Escape HTML to prevent injection
- */
-const escapeHtml = (text) => {
-  const map = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
-  };
-  return text.replace(/[&<>"']/g, (m) => map[m]);
 };
