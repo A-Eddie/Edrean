@@ -874,7 +874,26 @@
 
     /* ── FOOTER ── */
     footer {
-      display: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(107,107,107,0.85) 100%);
+      color: var(--card-bg);
+      text-align: center;
+      border-top: 1px solid var(--line);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      margin-top: 5rem;
+    }
+    footer p {
+      margin: 0;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+    footer:hover p {
+      opacity: 1;
     }
 
     /* ── SCROLL REVEAL ── */
@@ -1395,6 +1414,7 @@
 
 <!-- FOOTER -->
 <footer>
+  <p>&copy; 2026 All rights reserved. Edrean Ochieng</p>
 </footer>
 
 <script>
