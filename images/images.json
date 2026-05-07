@@ -2,12 +2,19 @@
   "images": [
     {
       "id": 1,
+      "name": "Edrean Ochieng Logo",
+      "path": "https://a-eddie.github.io/Edrean/images/edrean-ochieng-logo.png",
+      "description": "Professional logo for Edrean Ochieng",
+      "alt": "Edrean Ochieng Logo"
+    },
+    {
+      "id": 2,
       "name": "image 123",
       "path": "https://a-eddie.github.io/Edrean/images/image 123.jpeg",
       "description": "Image 123",
       "alt": "Image 123"
     }
   ],
-  "total": 1,
+  "total": 2,
   "lastUpdated": "2026-05-07"
 }

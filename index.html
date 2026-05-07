@@ -71,21 +71,23 @@
     }
 
     .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: -.02em;
-      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-decoration: none;
       transition: opacity 0.2s ease;
+      height: 50px;
+      width: auto;
     }
-    .nav-logo:hover { opacity: 0.8; }
-    .nav-logo span { 
-      color: var(--accent);
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .nav-logo:hover { opacity: 0.85; }
+    .nav-logo img {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+      transition: all 0.2s ease;
+    }
+    .nav-logo:hover img {
+      transform: scale(1.05);
     }
 
     .nav-links {
@@ -931,7 +933,7 @@
 
 <!-- NAV -->
 <nav role="navigation" aria-label="Main">
-  <a href="#home" class="nav-logo" aria-label="Edrean Ochieng - Home">EO<span>.</span></a>
+  <a href="#home" class="nav-logo" aria-label="Edrean Ochieng - Home"><img src="images/edrean-ochieng-logo.png" alt="Edrean Ochieng Logo" /></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -971,7 +973,7 @@
     </div>
   </div>
   <div class="hero-image">
-    <img src="images/profile.jpg" alt="Edrean Ochieng - Software Engineer & Developer from Nairobi" loading="lazy" decoding="async" width="420" height="520" />
+    <img src="images/edrean-ochieng-logo.png" alt="Edrean Ochieng - Professional Logo" loading="lazy" decoding="async" width="420" height="420" />
   </div>
 </section>
 
