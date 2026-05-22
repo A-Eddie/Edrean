@@ -29,9 +29,7 @@ app.use(
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
-// ── STATIC FILES & ROUTES ──
-app.use(express.static(__dirname));
-
+// ── ROUTES (before static files) ──
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/landing.html');
 });
@@ -42,6 +40,9 @@ app.get('/main', (req, res) => {
 
 // ── API ROUTES ──
 app.use('/api/contact', contactRoutes);
+
+// ── STATIC FILES ──
+app.use(express.static(__dirname));
 
 // ── HEALTH CHECK ──
 app.get('/api/health', (req, res) => {
