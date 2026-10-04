@@ -65,6 +65,14 @@
       position: relative;
       z-index: 1;
       padding: 2rem;
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .landing-container.is-exiting {
+      opacity: 0;
+      transform: scale(1.02);
+      pointer-events: none;
     }
 
     .landing-logo {
@@ -169,5 +177,21 @@
     <a href="/main" class="landing-button">Enter Site →</a>
     <div class="landing-scroll">or scroll down</div>
   </div>
+  <script>
+    const landingContainer = document.querySelector('.landing-container');
+    const landingButton = document.querySelector('.landing-button');
+    let hasEntered = false;
+
+    function enterSite(event) {
+      event?.preventDefault?.();
+      if (hasEntered) return;
+      hasEntered = true;
+      landingContainer.classList.add('is-exiting');
+      setTimeout(() => window.location.href = '/main', 500);
+    }
+
+    landingButton?.addEventListener('click', enterSite);
+    setTimeout(enterSite, 2800);
+  </script>
 </body>
 </html>

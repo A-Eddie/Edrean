@@ -5,38 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Edrean Ochieng — Engineer & Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink:    #0a0a0a;
-      --paper:  #fafaf8;
-      --muted:  #6b6b6b;
-      --accent: #d65c42;
-      --accent2: #3b5bdb;
-      --accent3: #1fa876;
-      --line:   rgba(0,0,0,0.08);
-      --line-light: rgba(0,0,0,0.04);
-      --card-bg: #ffffff;
+      --font-sans: "Inter", "Soehne", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      --ink: #121212;
+      --paper: #f5f1ee;
+      --muted: #5d5651;
+      --accent: #b75d3b;
+      --accent-strong: #8b3d2a;
+      --accent2: #4b5d72;
+      --accent3: #1f7a60;
+      --line: rgba(18, 18, 18, 0.08);
+      --line-light: rgba(18, 18, 18, 0.05);
+      --card-bg: #fffdfb;
       --nav-h: 64px;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
-      --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
-      --shadow-lg: 0 20px 48px rgba(0,0,0,0.12);
+      --shadow-sm: 0 2px 12px rgba(17, 17, 17, 0.04);
+      --shadow-md: 0 12px 30px rgba(17, 17, 17, 0.06);
+      --shadow-lg: 0 18px 40px rgba(17, 17, 17, 0.08);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #fafaf8 0%, #f5f2f0 100%);
+      font-family: var(--font-sans);
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(214, 92, 66, 0.26), transparent 34%),
+        radial-gradient(circle at 88% 24%, rgba(59, 91, 219, 0.2), transparent 38%),
+        radial-gradient(circle at 68% 86%, rgba(31, 168, 118, 0.18), transparent 36%),
+        linear-gradient(180deg, rgba(246, 243, 241, 0.7), rgba(242, 239, 233, 0.78)),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=85");
+      background-size: cover;
+      background-position: center top;
       background-attachment: fixed;
       color: var(--ink);
       font-size: 15px;
       line-height: 1.6;
+      letter-spacing: -0.015em;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+
+    html[data-theme="dark"] {
+      --ink: #f4efe9;
+      --paper: #111315;
+      --muted: #b8b0a8;
+      --accent: #e0835f;
+      --accent-strong: #f09a76;
+      --accent2: #9aacc2;
+      --accent3: #70c5a1;
+      --line: rgba(244, 239, 233, 0.16);
+      --line-light: rgba(244, 239, 233, 0.09);
+      --card-bg: #1b1e20;
+      --shadow-sm: 0 2px 12px rgba(0,0,0,.18);
+      --shadow-md: 0 12px 30px rgba(0,0,0,.24);
+      --shadow-lg: 0 18px 40px rgba(0,0,0,.32);
+    }
+    html[data-theme="dark"] body {
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(224, 131, 95, 0.16), transparent 34%),
+        radial-gradient(circle at 88% 24%, rgba(105, 127, 161, 0.18), transparent 38%),
+        radial-gradient(circle at 68% 86%, rgba(73, 157, 122, 0.14), transparent 36%),
+        linear-gradient(180deg, rgba(17, 19, 21, 0.78), rgba(12, 14, 16, 0.88)),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=85");
     }
 
     /* ── SUBTLE TEXTURE ── */
@@ -48,8 +84,8 @@
         radial-gradient(circle at 20% 50%, rgba(214, 92, 66, 0.03) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(59, 91, 219, 0.03) 0%, transparent 50%);
       pointer-events: none;
-      z-index: 9999;
-      opacity: 1;
+      z-index: 0;
+      opacity: .45;
     }
 
     /* ── NAV ── */
@@ -59,15 +95,15 @@
       left: 0;
       right: 0;
       height: var(--nav-h);
-      background: rgba(250, 250, 248, 0.92);
-      backdrop-filter: blur(16px);
+      background: rgba(246, 243, 241, 0.9);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 clamp(1.5rem, 5vw, 4rem);
       z-index: 100;
-      box-shadow: var(--shadow-sm);
+      box-shadow: none;
     }
 
     .nav-logo {
@@ -96,7 +132,7 @@
       list-style: none;
     }
     .nav-links a {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.7rem;
       color: var(--muted);
       text-decoration: none;
@@ -117,6 +153,27 @@
     }
     .nav-links a:hover::after { width: 100%; }
     .nav-links a:hover { color: var(--ink); }
+
+    .theme-toggle {
+      width: 34px;
+      height: 34px;
+      margin-left: .75rem;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      background: rgba(255,255,255,.28);
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible { background: rgba(255,255,255,.6); border-color: var(--accent); outline: none; transform: rotate(12deg); }
+    .theme-toggle svg { width: 16px; height: 16px; stroke: currentColor; }
+    html[data-theme="dark"] .theme-toggle { background: rgba(255,255,255,.08); }
+    html[data-theme="dark"] .theme-toggle:hover,
+    html[data-theme="dark"] .theme-toggle:focus-visible { background: rgba(255,255,255,.16); }
 
     .hamburger {
       display: none;
@@ -143,7 +200,7 @@
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       font-size: 1.75rem;
       font-weight: 700;
       color: var(--ink);
@@ -166,11 +223,15 @@
     .mobile-menu a:hover { color: var(--accent); }
 
     /* ── SECTIONS ── */
-    section { padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 8rem); }
-    section:first-of-type { padding-top: calc(var(--nav-h) + clamp(4rem, 8vw, 7rem)); }
+    section {
+      padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 8vw, 8rem);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    section:first-of-type { padding-top: calc(var(--nav-h) + clamp(4rem, 8vw, 6.5rem)); }
 
     .section-label {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.68rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -190,11 +251,11 @@
     }
 
     h2 {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       font-size: clamp(2rem, 4.5vw, 3rem);
       font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -.03em;
+      line-height: 1.1;
+      letter-spacing: -0.05em;
       margin-bottom: 2rem;
     }
 
@@ -218,27 +279,26 @@
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(107,107,107,0.8) 100%);
-      color: var(--card-bg);
-      font-family: 'IBM Plex Mono', monospace;
+      background: rgba(18, 18, 18, 0.03);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      font-family: var(--font-mono);
       font-size: 0.68rem;
       letter-spacing: 0.08em;
-      padding: 0.4rem 1rem;
-      border-radius: 100px;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
       margin-bottom: 1.8rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
     }
     .hero-chip:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transform: translateY(-1px);
+      background: rgba(18, 18, 18, 0.05);
     }
     .hero-chip .dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: #3ddc84;
-      animation: pulse 2s ease-in-out infinite;
+      background: var(--accent3);
     }
     @keyframes pulse {
       0%,100% { opacity: 1; }
@@ -246,27 +306,28 @@
     }
 
     .hero-name {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-family: var(--font-sans);
+      font-size: clamp(3.5rem, 7vw, 6.3rem);
       font-weight: 800;
-      line-height: 1.0;
-      letter-spacing: -.04em;
-      margin-bottom: 1.2rem;
+      line-height: 0.92;
+      letter-spacing: -0.07em;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
     }
-    .hero-name .line2 { 
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero-name .line2 {
+      color: var(--accent);
+      display: inline-block;
+      font-weight: 800;
     }
 
     .hero-tagline {
-      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      font-size: clamp(1.08rem, 2vw, 1.55rem);
       color: var(--muted);
-      max-width: 440px;
+      max-width: 700px;
       margin-bottom: 2.5rem;
-      font-weight: 300;
-      line-height: 1.7;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: -0.03em;
     }
 
     .hero-ctas {
@@ -278,7 +339,7 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.9rem 2rem;
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.82rem;
       letter-spacing: 0.05em;
       border-radius: 8px;
@@ -289,27 +350,28 @@
       font-weight: 500;
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--ink) 0%, var(--muted) 100%);
+      background: var(--ink);
       color: var(--card-bg);
-      border: 1.5px solid transparent;
-      box-shadow: var(--shadow-md);
+      border: 1px solid var(--ink);
+      box-shadow: none;
     }
     .btn-primary:hover {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
+      background: var(--accent-strong);
+      border-color: var(--accent-strong);
+      transform: translateY(-2px);
+      box-shadow: none;
     }
     .btn-outline {
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.38);
       color: var(--ink);
-      border: 1.5px solid var(--line);
-      backdrop-filter: blur(8px);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(0);
     }
     .btn-outline:hover {
-      border-color: var(--accent);
-      background: rgba(214, 92, 66, 0.08);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
+      border-color: var(--ink);
+      background: rgba(255,255,255,0.6);
+      transform: translateY(-2px);
+      box-shadow: none;
     }
 
     .hero-image {
@@ -381,7 +443,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       font-size: 1.6rem;
       font-weight: 800;
       color: white;
@@ -394,13 +456,13 @@
       box-shadow: 0 12px 32px rgba(214, 92, 66, 0.4);
     }
     .hero-card h3 {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       font-weight: 700; font-size: 1rem;
       margin-bottom: .25rem;
     }
     .hero-card p {
       font-size: .82rem; color: var(--muted);
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       margin-bottom: 1.2rem;
     }
     .stat-row {
@@ -419,12 +481,12 @@
       border-color: var(--accent);
     }
     .stat-num {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       font-weight: 800; font-size: 1.4rem;
       color: var(--ink);
     }
     .stat-label {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: .65rem;
       color: var(--muted);
       letter-spacing: .05em;
@@ -442,8 +504,8 @@
 
     .about-text {
       color: var(--muted);
-      font-size: 1.1rem;
-      font-weight: 300;
+      font-size: 1.08rem;
+      font-weight: 500;
       line-height: 1.85;
       margin-bottom: 1.3rem;
       transition: all 0.3s ease;
@@ -470,7 +532,7 @@
       box-shadow: var(--shadow-sm);
     }
     .highlight-box p {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.85rem;
       color: var(--ink);
       font-style: italic;
@@ -512,133 +574,15 @@
       transform: scale(1.1) rotate(5deg);
     }
     .edu-info h4 {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       font-weight: 700; font-size: 1.02rem;
       margin-bottom: .15rem;
     }
     .edu-info span {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: .72rem; color: var(--muted);
       letter-spacing: .04em;
     }
-
-    /* ── PROJECTS ── */
-    #projects { border-top: 1px solid var(--line); }
-
-    .projects-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
-      border: 1px solid var(--line-light);
-      border-radius: 18px;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      position: relative;
-      box-shadow: var(--shadow-md);
-    }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--accent);
-      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
-    }
-
-    .project-card-top {
-      height: 5px;
-      background: var(--accent);
-    }
-    .project-card-top.blue { background: var(--accent2); }
-    .project-card-top.green { background: #2fc87a; }
-    .project-card-top.orange { background: #c8832f; }
-    .project-card-top.purple { background: #832fc8; }
-
-    .project-card-body { padding: 1.5rem; }
-
-    .project-tag {
-      display: inline-block;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.65rem;
-      border-radius: 6px;
-      background: linear-gradient(135deg, rgba(214,92,66,0.12) 0%, rgba(59,91,219,0.12) 100%);
-      color: var(--accent);
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-      border: 0.5px solid rgba(214, 92, 66, 0.2);
-    }
-
-    .project-card h3 {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.15rem; font-weight: 700;
-      margin-bottom: .5rem;
-      line-height: 1.3;
-    }
-    .project-card p {
-      font-size: .95rem; color: var(--muted);
-      font-weight: 300; line-height: 1.7;
-      margin-bottom: 1.2rem;
-    }
-
-    .project-card-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: .5rem;
-    }
-
-    .tech-stack {
-      display: flex; gap: .4rem; flex-wrap: wrap;
-    }
-    .tech-badge {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.62rem;
-      padding: 0.22rem 0.55rem;
-      background: linear-gradient(135deg, rgba(214,92,66,0.1) 0%, rgba(59,91,219,0.1) 100%);
-      border: 0.5px solid rgba(214, 92, 66, 0.2);
-      border-radius: 6px;
-      color: var(--ink);
-      transition: all 0.2s ease;
-      font-weight: 500;
-    }
-    .tech-badge:hover {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      color: var(--card-bg);
-      border-color: transparent;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--accent);
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      font-weight: 500;
-      position: relative;
-    }
-    .project-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-    .project-link:hover::after { width: 100%; }
-    .project-link:hover { gap: 0.6rem; }
 
     /* ── SKILLS ── */
     #skills { border-top: 1px solid var(--line); }
@@ -650,22 +594,45 @@
     }
 
     .skill-group {
-      background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.65) 100%);
+      background-color: rgba(255, 255, 255, 0.62);
+      background-image: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.68)), url("https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=900&q=80");
+      background-size: cover;
+      background-position: center;
       border: 1px solid var(--line-light);
       border-radius: 16px;
       padding: 1.8rem;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: var(--shadow-sm);
-      backdrop-filter: blur(6px);
+      transition: all 0.2s ease;
+      box-shadow: none;
+      backdrop-filter: blur(0);
     }
+    .skill-group:nth-child(2) {
+      background-image: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.68)), url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80");
+    }
+    .skill-group:nth-child(3) {
+      background-image: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.68)), url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80");
+    }
+    .skill-group:nth-child(4) {
+      background-image: linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.62)), url("images/Ai signals.jpg");
+    }
+    .skill-group:nth-child(5) {
+      background-image: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.7)), url("https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=80");
+    }
+    .skill-group:nth-child(6) {
+      background-image: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.66)), url("images/mechanical-systems.svg");
+    }
+    html[data-theme="dark"] .skill-group {
+      background-color: var(--card-bg);
+      background-blend-mode: multiply;
+    }
+    .skill-group > * { position: relative; z-index: 1; }
     .skill-group:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+      border-color: rgba(18,18,18,0.09);
     }
 
     .skill-group-title {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       font-weight: 700; font-size: .98rem;
       margin-bottom: 1rem;
       display: flex; align-items: center; gap: .6rem;
@@ -682,23 +649,23 @@
     }
 
     .skill-pill {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: .72rem;
+      font-family: var(--font-mono);
+      font-size: .71rem;
       padding: .35rem 0.8rem;
-      border-radius: 100px;
-      border: 1px solid var(--line);
+      border-radius: 999px;
+      border: 1px solid rgba(18, 18, 18, 0.08);
       color: var(--ink);
-      background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(250,250,248,0.4) 100%);
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      background: rgba(255,255,255,0.2);
+      transition: all 0.2s ease;
       cursor: pointer;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(0);
     }
     .skill-pill:hover {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      color: var(--card-bg);
-      border-color: transparent;
-      transform: scale(1.08);
-      box-shadow: 0 4px 12px rgba(214, 92, 66, 0.3);
+      background: rgba(18,18,18,0.04);
+      color: var(--ink);
+      border-color: rgba(18,18,18,0.12);
+      transform: none;
+      box-shadow: none;
     }
 
     /* ── CONTACT ── */
@@ -751,7 +718,7 @@
       transform: scale(1.1);
     }
     .contact-item a {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.82rem;
       color: var(--ink);
       text-decoration: none;
@@ -759,7 +726,7 @@
       position: relative;
     }
     .contact-item a:not(.ci-icon) {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.82rem;
       color: var(--ink);
       text-decoration: none;
@@ -785,7 +752,7 @@
 
     .form-group { display: flex; flex-direction: column; gap: .4rem; }
     .form-group label {
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.75rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -800,7 +767,7 @@
       border: 1.5px solid var(--line);
       border-radius: 10px;
       background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(250,250,248,0.8) 100%);
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-sans);
       font-size: 0.9rem;
       color: var(--ink);
       transition: all 0.3s ease;
@@ -825,7 +792,7 @@
       border: none;
       padding: 0.9rem 2.2rem;
       border-radius: 10px;
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.8rem;
       letter-spacing: 0.05em;
       cursor: pointer;
@@ -857,7 +824,7 @@
       border: 1px solid rgba(31, 168, 118, 0.3);
       border-radius: 10px;
       padding: 1.2rem 1.4rem;
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.82rem;
       color: #1a7a46;
       animation: slideUp 0.4s ease;
@@ -884,7 +851,7 @@
       color: var(--card-bg);
       text-align: center;
       border-top: 1px solid var(--line);
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 0.85rem;
       letter-spacing: 0.05em;
       margin-top: 5rem;
@@ -925,7 +892,181 @@
       .hero-image { padding: 1rem; }
       .hero-image img { max-width: 280px; aspect-ratio: auto; border-radius: 16px; }
       .form-row { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── EDITORIAL LAYOUT ── */
+    section, footer { position: relative; z-index: 1; }
+
+    nav {
+      top: 1rem;
+      left: 50%;
+      right: auto;
+      width: min(calc(100% - 2rem), 1180px);
+      height: 58px;
+      padding: 0 .65rem 0 1rem;
+      border: 1px solid rgba(18,18,18,.1);
+      border-radius: 999px;
+      background: rgba(248, 245, 242, .78);
+      box-shadow: 0 12px 30px rgba(18,18,18,.08);
+      transform: translateX(-50%);
+    }
+    .nav-logo { height: 44px; }
+    .nav-logo img { height: 36px; }
+    .nav-links { gap: .25rem; }
+    .nav-links a {
+      padding: .55rem .8rem;
+      border-radius: 999px;
+      letter-spacing: .02em;
+      text-transform: none;
+      font-size: .72rem;
+      transition: background .2s ease, color .2s ease;
+    }
+    .nav-links a::after { display: none; }
+    .nav-links a:hover { color: var(--ink); background: rgba(18,18,18,.06); }
+
+    section {
+      width: min(100%, 1280px);
+      padding-left: clamp(1.25rem, 5vw, 4.5rem);
+      padding-right: clamp(1.25rem, 5vw, 4.5rem);
+    }
+    section:first-of-type { padding-top: clamp(9rem, 16vw, 12rem); }
+
+    #home {
+      min-height: auto;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      gap: clamp(2rem, 8vw, 8rem);
+      padding-bottom: clamp(7rem, 14vw, 12rem);
+      align-items: end;
+    }
+    #home::after {
+      content: '01 / INTRO';
+      position: absolute;
+      right: clamp(1.25rem, 5vw, 4.5rem);
+      bottom: 3.2rem;
+      color: var(--muted);
+      font: 600 .62rem/1 var(--font-mono);
+      letter-spacing: .14em;
+    }
+    .hero-left { max-width: 760px; }
+    .hero-chip { margin-bottom: 1.5rem; }
+    .hero-name {
+      font-size: clamp(4rem, 10vw, 9.5rem);
+      line-height: .82;
+      letter-spacing: -.095em;
+      margin-left: -.08em;
+    }
+    .hero-name .line2 { margin-left: .42em; }
+    .hero-tagline { max-width: 580px; margin-top: 2rem; font-size: clamp(1.05rem, 1.6vw, 1.35rem); }
+    .hero-ctas { margin-top: 2.2rem; }
+    .btn { border-radius: 999px; padding: .85rem 1.45rem; }
+    .hero-image { width: min(100%, 400px); padding: 0; justify-content: center; }
+    .hero-image::before { inset: 7% -5% -5% 5%; opacity: .18; filter: blur(24px); }
+    .hero-image img {
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 4 / 5;
+      border: 1px solid rgba(18,18,18,.16);
+      border-radius: 22px;
+      box-shadow: 0 22px 44px rgba(18,18,18,.14);
+      object-fit: cover;
+      object-position: center 28%;
+      filter: saturate(.9) contrast(1.03);
+    }
+    .hero-image img:hover { transform: translateY(-5px); box-shadow: 0 28px 54px rgba(18,18,18,.18); }
+
+    .visual-index {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr 1.35fr;
+      gap: .75rem;
+      padding-top: 0;
+      padding-bottom: clamp(4rem, 8vw, 7rem);
+    }
+    .visual-index figure {
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(18,18,18,.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.34);
+    }
+    .visual-index img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.35 / 1;
+      object-fit: cover;
+      transition: transform .45s cubic-bezier(.2,.8,.2,1), filter .45s ease;
+      filter: saturate(.82);
+    }
+    .visual-index figure:nth-child(2) img,
+    .visual-index figure:nth-child(3) img { aspect-ratio: 1 / 1; }
+    .visual-index figure:hover img { transform: scale(1.045); filter: saturate(1); }
+    .visual-index figcaption {
+      padding: .7rem .85rem .8rem;
+      color: var(--muted);
+      font: 600 .6rem/1.2 var(--font-mono);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    #about, #skills, #contact { border-top: 1px solid rgba(18,18,18,.14); }
+    #about { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(2rem, 8vw, 8rem); }
+    .about-left { position: sticky; top: 7rem; }
+    h2 { font-size: clamp(2.3rem, 4.5vw, 4.5rem); line-height: .95; }
+    .section-label { color: var(--accent-strong); margin-bottom: 1.2rem; }
+    .section-label::after { background: var(--accent-strong); opacity: .5; }
+    .about-text { font-size: 1rem; line-height: 1.7; }
+    .about-text strong { color: var(--accent-strong); background: none; -webkit-text-fill-color: initial; }
+    .highlight-box { background: rgba(183,93,59,.08); border-left-width: 2px; }
+    .edu-item { padding: 1.1rem 0; }
+    .edu-icon { width: 34px; height: 34px; border-radius: 50%; background: var(--ink); }
+    .certificate-image {
+      display: block;
+      width: min(100%, 360px);
+      margin-top: .85rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: var(--shadow-sm);
+      background: var(--card-bg);
+    }
+
+    #skills { display: block; }
+    .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin-top: 2rem !important; }
+    .skill-group { padding: 1.4rem; border-radius: 12px; background: rgba(255,255,255,.34); }
+    .skill-group-title { font-size: .9rem; margin-bottom: .8rem; }
+    .skill-pill { font-size: .66rem; padding: .3rem .58rem; }
+
+    #contact { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 8vw, 8rem); }
+    .contact-desc { font-size: 1rem; line-height: 1.65; }
+    .contact-item { margin-bottom: .85rem; }
+    .contact-item .ci-icon { width: 38px; height: 38px; border-radius: 50%; background: var(--ink); }
+    .contact-form { padding: 1.5rem; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.35); }
+    .form-group input, .form-group textarea { border-radius: 8px; background: rgba(255,255,255,.45); }
+    .form-submit { border-radius: 999px; }
+
+    @media (max-width: 900px) {
+      #home { grid-template-columns: 1fr; align-items: start; }
+      .hero-image { width: min(100%, 340px); justify-content: flex-start; padding-top: 1rem; }
+      .hero-image img { max-width: 340px; }
+      .visual-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #about, #contact { grid-template-columns: 1fr; gap: 3rem; }
+      .about-left { position: static; }
+      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      nav { top: .65rem; width: calc(100% - 1.25rem); }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      #home { padding-bottom: 7rem; }
+      #home::after { bottom: 2.5rem; }
+      .hero-name { font-size: clamp(3.8rem, 18vw, 6rem); }
+      .hero-name .line2 { margin-left: .16em; }
+      .hero-image { width: 100%; }
+      .hero-image img { max-width: 320px; aspect-ratio: 4 / 5; border-radius: 18px; }
+      .visual-index { grid-template-columns: 1fr 1fr; gap: .5rem; }
+      .visual-index figure:first-child, .visual-index figure:last-child { grid-column: span 2; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .contact-form { padding: 1rem; }
     }
   </style>
 </head>
@@ -936,10 +1077,14 @@
   <a href="#home" class="nav-logo" aria-label="Edrean Ochieng - Home"><img src="images/Edrean.o logo.png" alt="Edrean Ochieng Logo" /></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Enable dark mode" aria-pressed="false" title="Toggle dark mode">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z"></path>
+    </svg>
+  </button>
   <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
     <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
   </button>
@@ -948,7 +1093,6 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile menu" hidden>
   <a href="#about" class="mm-link">About</a>
-  <a href="#projects" class="mm-link">Projects</a>
   <a href="#skills" class="mm-link">Skills</a>
   <a href="#contact" class="mm-link">Contact</a>
 </div>
@@ -957,6 +1101,7 @@
 <section id="home">
   <div class="hero-bg-grid"></div>
   <div class="hero-left">
+    <div class="hero-chip"><span class="dot" aria-hidden="true"></span>Nairobi, Kenya · 2026</div>
     <h1 class="hero-name">
       Edrean<br>
       <span class="line2">Ochieng.</span>
@@ -965,36 +1110,61 @@
       Mechanical Engineering student & Full-Stack Software Engineer building real-world products from Nairobi, Kenya — spanning fintech, campus tech, and AI.
     </p>
     <div class="hero-ctas">
-      <a href="#projects" class="btn btn-primary">View Projects →</a>
-      <a href="#contact" class="btn btn-outline">Get in touch</a>
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
     </div>
   </div>
   <div class="hero-image">
-    <img src="images/image 123.jpeg" alt="Edrean Ochieng - Professional Logo" loading="lazy" decoding="async" width="420" height="420" />
+    <img src="images/Edrean image.png" alt="Edrean Ochieng wearing a black suit" loading="lazy" decoding="async" width="1024" height="1536" />
   </div>
+</section>
+
+<!-- VISUAL INDEX -->
+<section class="visual-index" aria-label="Engineering visual index">
+  <figure>
+    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=85" alt="Engineer working with industrial machinery" loading="lazy" decoding="async" />
+    <figcaption>Mechanical systems</figcaption>
+  </figure>
+  <figure>
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85" alt="Close-up of a computer circuit board" loading="lazy" decoding="async" />
+    <figcaption>Software architecture</figcaption>
+  </figure>
+  <figure>
+    <img src="images/Ai signals.jpg" alt="Colorful artificial intelligence signal network" loading="lazy" decoding="async" />
+    <figcaption>AI signals</figcaption>
+  </figure>
+  <figure>
+    <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1200&q=85" alt="Nairobi-inspired city skyline and infrastructure" loading="lazy" decoding="async" />
+    <figcaption>Nairobi infrastructure</figcaption>
+  </figure>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="about-left reveal">
     <div class="section-label">About me</div>
-    <h2>Engineer with a<br>builder's mindset.</h2>
+    <h2>Engineer with a <br>builder's mindset.</h2>
     <p class="about-text">
-      I'm a <strong>Mechanical Engineering student</strong> and self-taught <strong>Full-Stack Software Engineer</strong> based in Nairobi, Kenya. My work sits at the intersection of hardware thinking and software execution — I apply engineering rigour to every product I build.
+      I'm a <strong>Mechanical Engineering student at the University of Nairobi</strong>, a software engineer, and a technology-driven builder passionate about creating solutions that make a real-world impact.
     </p>
     <p class="about-text">
-      Over the past few years I've shipped a campus dating app, an AI forex trading bot, a sports betting platform, a streaming site, a trading interface, and a news portal — all independently designed and deployed.
+      My journey in technology began with curiosity. Over time, that curiosity grew into a passion for software development, artificial intelligence, engineering, and entrepreneurship. Today, I'm continuously developing my skills across <strong>software engineering, web and mobile development, AI, cloud technologies, and mechanical engineering</strong>.
     </p>
     <p class="about-text">
-      I'm deeply embedded in the Kenyan tech ecosystem, prioritising <strong>M-Pesa integration</strong>, local regulatory compliance (Kenya Data Protection Act 2019), and solutions tailored for the East African market.
+      I believe the most powerful ideas are created where different disciplines meet. That's why I'm building myself at the intersection of <strong>engineering and technology</strong> — combining analytical thinking with creativity to design, build, and solve meaningful problems.
+    </p>
+    <p class="about-text">
+      I'm also the founder of <strong>Unimatch</strong>, a technology initiative focused on connecting university students and creating a stronger digital community. Through Unimatch, I'm learning not only how to write software, but also how to turn ideas into products, lead teams, understand users, and build businesses with long-term vision.
+    </p>
+    <p class="about-text">
+      My goal is bigger than simply becoming a good engineer or developer. I want to become a <strong>builder and entrepreneur capable of creating technologies, companies, and institutions that create lasting value</strong>. I'm constantly learning, experimenting, building, and challenging myself to think beyond what exists today.
     </p>
     <div class="highlight-box">
-      <p>"I build products that solve real problems — and I ship them."</p>
+      <p>"I build products that solve real problems and I ship them."</p>
     </div>
   </div>
   <div class="about-right reveal">
     <div class="section-label">Background</div>
-    <h2>Education &<br>experience.</h2>
+    <h2>Education & <br>experience.</h2>
     <div class="edu-item">
       <div class="edu-icon" aria-label="Mechanical Engineering">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1028,6 +1198,7 @@
       <div class="edu-info">
         <h4>CS50's Introduction to Cybersecurity</h4>
         <span>Harvard University · Online</span>
+        <img class="certificate-image" src="images/Cs50 cybersecurity.jpeg" alt="Completed CS50 Introduction to Cybersecurity certificate for Edrean Ochieng" loading="lazy" decoding="async" />
       </div>
     </div>
     <div class="edu-item">
@@ -1071,168 +1242,7 @@
         <span>Python · LSTM models · Trading bots</span>
       </div>
     </div>
-    <div class="edu-item">
-      <div class="edu-icon" aria-label="Location">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-      </div>
-      <div class="edu-info">
-        <h4>Nairobi, Kenya</h4>
-        <span>East African market focus · M-Pesa integration</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="projects-header reveal">
-    <div>
-      <div class="section-label">Portfolio</div>
-      <h2>Projects I've built &<br>shipped.</h2>
-    </div>
-  </div>
-  <div class="projects-grid">
-
-    <div class="project-card reveal">
-      <div class="project-card-top"></div>
-      <div class="project-card-body">
-        <span class="project-tag">Campus Tech</span>
-        <h3>UniMatch — Campus Dating App</h3>
-        <p>The best campus dating app for Kenyan university students with real-time messaging, video calling, Google Sign-In restricted to .ac.ke/.edu domains, stories, and premium tiers. Deployed on one of the leading hosting platforms.</p>
-        <div class="project-card-footer">
-          <div class="tech-stack">
-            <span class="tech-badge">Firebase</span>
-            <span class="tech-badge">Firestore</span>
-            <span class="tech-badge">JS</span>
-          </div>
-          <a href="https://unimatch-campus.com" target="_blank" class="project-link">Live ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-card-top blue"></div>
-      <div class="project-card-body">
-        <span class="project-tag">FinTech · AI</span>
-        <h3>Forex AI Trading Bot</h3>
-        <p>A Python/MT5 algorithmic trading system powered by an LSTM neural network. Integrates candlestick pattern recognition from "The Candlestick Trading Bible," multi-symbol threading, watchdog auto-restart, and model evaluation tools.</p>
-        <div class="project-card-footer">
-          <div class="tech-stack">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">LSTM</span>
-            <span class="tech-badge">MT5</span>
-            <span class="tech-badge">Exness</span>
-          </div>
-          <a href="#" class="project-link">Private ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-card-top orange"></div>
-      <div class="project-card-body">
-        <span class="project-tag">Sports · FinTech</span>
-        <h3>WaveBet — Sports Betting Platform</h3>
-        <p>A Firebase-backed sports betting platform with live odds API integration, M-Pesa payment processing, real-time bet settlement, and a full user wallet system. Built for the Kenyan market.</p>
-        <div class="project-card-footer">
-          <div class="tech-stack">
-            <span class="tech-badge">Firebase</span>
-            <span class="tech-badge">M-Pesa</span>
-            <span class="tech-badge">Live Odds API</span>
-          </div>
-          <a href="#" class="project-link">View ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-card-top blue"></div>
-      <div class="project-card-body">
-        <span class="project-tag">FinTech</span>
-        <h3>Wave Trader — Trading Platform</h3>
-        <p>A MetaTrader-style browser-based trading interface with live charting, order management, portfolio tracking, and a clean professional UI designed for retail traders.</p>
-        <div class="project-card-footer">
-          <div class="tech-stack">
-            <span class="tech-badge">HTML/CSS/JS</span>
-            <span class="tech-badge">Charts.js</span>
-            <span class="tech-badge">REST API</span>
-          </div>
-          <a href="#" class="project-link">View ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-card-top green"></div>
-      <div class="project-card-body">
-        <span class="project-tag">EdTech</span>
-        <h3>AttendAI — Smart Attendance System</h3>
-        <p>A university attendance tracking system with a Firebase frontend and Node.js/TypeScript backend. Features biometric-ready architecture, real-time dashboards, and automated reporting for academic institutions.</p>
-        <div class="project-card-footer">
-          <div class="tech-stack">
-            <span class="tech-badge">Node.js</span>
-            <span class="tech-badge">TypeScript</span>
-            <span class="tech-badge">Firebase</span>
-          </div>
-          <a href="#" class="project-link">View ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-card-top purple"></div>
-      <div class="project-card-body">
-        <span class="project-tag">Streaming</span>
-        <h3>REEL — Movie Streaming Platform</h3>
-        <p>A full-featured streaming site with movie browsing, user authentication, watchlist management, and a cinema-grade UI. Designed for East African content consumption patterns.</p>
-        <div class="project-card-footer">
-          <div class="tech-stack">
-            <span class="tech-badge">HTML/CSS/JS</span>
-            <span class="tech-badge">Firebase Auth</span>
-            <span class="tech-badge">API</span>
-          </div>
-          <a href="#" class="project-link">View ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-card-top"></div>
-      <div class="project-card-body">
-        <span class="project-tag">Media</span>
-        <h3>Wave News — News Portal</h3>
-        <p>A modern news site with category-based browsing, article management, and a clean editorial layout. Optimised for mobile-first readers across East Africa.</p>
-        <div class="project-card-footer">
-          <div class="tech-stack">
-            <span class="tech-badge">HTML/CSS/JS</span>
-            <span class="tech-badge">News API</span>
-          </div>
-          <a href="#" class="project-link">View ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-card-top green"></div>
-      <div class="project-card-body">
-        <span class="project-tag">EdTech</span>
-        <h3>Rapogi High School Website</h3>
-        <p>A full institutional school website with a Flask/SQLite REST API backend, admin portal, student portal, event management, and responsive design for mobile devices.</p>
-        <div class="project-card-footer">
-          <div class="tech-stack">
-            <span class="tech-badge">Flask</span>
-            <span class="tech-badge">SQLite</span>
-            <span class="tech-badge">Python</span>
-          </div>
-          <a href="#" class="project-link">View ↗</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
+    
 </section>
 
 <!-- SKILLS -->
@@ -1310,7 +1320,6 @@
         <span class="skill-pill">Technical Drawing</span>
         <span class="skill-pill">Algorithms & DS</span>
         <span class="skill-pill">System Architecture</span>
-        <span class="skill-pill">M-Pesa API</span>
         <span class="skill-pill">Microservices</span>
       </div>
     </div>
@@ -1322,31 +1331,16 @@
 <section id="contact">
   <div class="contact-left reveal">
     <div class="section-label">Contact</div>
-    <h2>Let's build<br>something.</h2>
+    <h2>Let's build <br>something.</h2>
     <p class="contact-desc">
       Open to collaborations, freelance projects, and full-time engineering roles. Whether it's a startup idea, a technical challenge, or just a conversation about tech in Kenya — reach out.
     </p>
-    <div class="contact-item">
-      <a href="mailto:edreanochieng@gmail.com" class="ci-icon" aria-label="Email">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
-          <path d="M22 7l-10 5L2 7"></path>
-        </svg>
-      </a>
-      <a href="mailto:edreanochieng@gmail.com">edreanochieng@gmail.com</a>
-    </div>
-    <div class="contact-item">
-      <a href="tel:+254741346297" class="ci-icon" aria-label="Phone">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-        </svg>
-      </a>
-      <a href="tel:+254741346297">0741346297</a>
-    </div>
+    
     <div class="contact-item">
       <a href="https://wa.me/254741346297" target="_blank" rel="noopener noreferrer" class="ci-icon" aria-label="WhatsApp">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.935 1.244c-2.926 1.946-4.798 5.11-4.798 8.713 0 2.51.684 4.947 1.973 7.071l-2.095 3.641 3.829-1.187c2.026 1.082 4.31 1.652 6.614 1.652 5.446 0 9.896-4.139 9.996-9.261.039-2.165-.745-4.194-2.224-5.852-1.478-1.659-3.489-2.645-5.58-2.65"/>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.5 11.5a8.5 8.5 0 0 1-12.7 7.4L3.5 20l1.1-4.1A8.5 8.5 0 1 1 20.5 11.5Z"></path>
+          <path d="M8.8 8.3c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.6.7c.5 1 1.3 1.8 2.3 2.3l.7-.6c.2-.2.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.5-.4.7-.4.3-.9.4-1.4.3-2.9-.5-5.4-3-5.9-5.9-.1-.5 0-1 .3-1.4Z"></path>
         </svg>
       </a>
       <a href="https://wa.me/254741346297" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -1366,15 +1360,15 @@
           <circle cx="4" cy="4" r="2"></circle>
         </svg>
       </a>
-      <a href="https://linkedin.com/in/edrean-ochieng" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://linkedin.com/in/edrean-ochieng-964001234" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
     <div class="contact-item">
-      <a href="https://facebook.com/edrean ochieng" target="_blank" rel="noopener noreferrer" class="ci-icon" aria-label="Facebook">
+      <a href="https://facebook.com/Eddiewave79" target="_blank" rel="noopener noreferrer" class="ci-icon" aria-label="Facebook">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 2h-3a6 6 0 0 0-6 6v4h-2v4h2v6h4v-6h3l1-4h-4V8a2 2 0 0 1 2-2h1z"></path>
         </svg>
       </a>
-      <a href="https://facebook.com/edrean ochieng" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://facebook.com/Eddiewave79" target="_blank" rel="noopener noreferrer">Facebook</a>
     </div>
     <div class="contact-item">
       <a href="https://instagram.com/eddie_wave1" target="_blank" rel="noopener noreferrer" class="ci-icon" aria-label="Instagram">
@@ -1433,6 +1427,33 @@
 </footer>
 
 <script>
+  // ── Color theme toggle ──
+  const themeToggle = document.getElementById('themeToggle');
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  function setTheme(theme, persist = true) {
+    const isDark = theme === 'dark';
+    document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute('aria-label', isDark ? 'Disable dark mode' : 'Enable dark mode');
+      themeToggle.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+    }
+
+    if (persist) localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  setTheme(savedTheme || (prefersDark ? 'dark' : 'light'), false);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      setTheme(nextTheme);
+    });
+  }
+
   // ── Hamburger menu toggle ──
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1457,7 +1478,7 @@
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
-        const delay = entry.target.closest('.projects-grid, .skills-grid') 
+        const delay = entry.target.closest('.skills-grid')
           ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 60 
           : 0;
         setTimeout(() => entry.target.classList.add('visible'), delay);

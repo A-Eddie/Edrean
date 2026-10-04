@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Engineering blueprint background</title>
+  <desc id="desc">Abstract technical drawing with a mechanical assembly, measurement lines, and blueprint grid.</desc>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#68717a" stroke-width="1" opacity=".18"/>
+    </pattern>
+    <pattern id="smallGrid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <path d="M 12 0 L 0 0 0 12" fill="none" stroke="#68717a" stroke-width=".6" opacity=".12"/>
+    </pattern>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4eee8" stop-opacity=".94"/>
+      <stop offset=".55" stop-color="#e8e3dc" stop-opacity=".78"/>
+      <stop offset="1" stop-color="#dce5e5" stop-opacity=".88"/>
+    </linearGradient>
+    <filter id="soften">
+      <feGaussianBlur stdDeviation=".45"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#wash)"/>
+  <rect width="1600" height="1000" fill="url(#smallGrid)"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <g fill="none" stroke="#34434d" stroke-width="3" opacity=".38" filter="url(#soften)">
+    <circle cx="1180" cy="510" r="230"/>
+    <circle cx="1180" cy="510" r="178"/>
+    <circle cx="1180" cy="510" r="78"/>
+    <circle cx="1180" cy="510" r="28"/>
+    <path d="M1180 280v460M950 510h460M1018 348l324 324M1342 348l-324 324"/>
+    <path d="M1180 300l22 38 44-4 7 43 40 18-17 40 29 33-35 28 4 44-43 7-18 40-40-17-33 29-28-35-44 4-7-43-40-18 17-40-29-33 35-28-4-44 43-7 18-40 40 17 33-29 28 35z"/>
+    <rect x="180" y="220" width="430" height="280" rx="10"/>
+    <path d="M180 360h430M395 220v280M230 270h330v180H230z"/>
+    <circle cx="315" cy="360" r="56"/>
+    <circle cx="315" cy="360" r="18"/>
+    <path d="M315 304v112M259 360h112"/>
+    <path d="M610 220l120 80v200l-120 0M730 300l180 0v200H730M790 300v200"/>
+    <path d="M180 560h690M180 575h690M220 560v-22M260 560v-22M300 560v-22M340 560v-22M380 560v-22M420 560v-22M460 560v-22M500 560v-22M540 560v-22M580 560v-22M620 560v-22M660 560v-22M700 560v-22M740 560v-22M780 560v-22M820 560v-22"/>
+    <path d="M180 190h550M180 180h550M180 190v-24M730 190v-24M180 620h680M180 630h680M180 620v24M860 620v24"/>
+    <path d="M990 780h390M990 790h390M990 780v-24M1380 780v-24M1440 300v430M1450 300v430M1440 300h24M1440 730h24"/>
+  </g>
+  <g fill="#34434d" opacity=".38" font-family="monospace" font-size="18" letter-spacing="2">
+    <text x="180" y="155">ASSEMBLY / 04</text>
+    <text x="1000" y="820">MECHANICAL SYSTEMS</text>
+    <text x="150" y="660">0</text><text x="820" y="660">680 mm</text>
+    <text x="1470" y="320">420</text><text x="1470" y="730">0</text>
+    <text x="1000" y="250">SECTION A-A</text>
+  </g>
+  <path d="M0 925C320 850 580 980 890 900s500-58 710 5V1000H0z" fill="#b75d3b" opacity=".08"/>
+</svg>

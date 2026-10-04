@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">CS50 Introduction to Cybersecurity certificate completed by Edrean Ochieng</title>
+  <desc id="desc">Certificate card showing Edrean Ochieng completed CS50's Introduction to Cybersecurity from Harvard University.</desc>
+  <rect width="1200" height="820" fill="#fffdf8"/>
+  <rect x="34" y="34" width="1132" height="752" fill="none" stroke="#bca0a4" stroke-width="3"/>
+  <path d="M930 36h190v748H930c42-92 48-180 0-262 54-88 54-166 0-248 48-78 48-132 0-238z" fill="#f2e8e7"/>
+  <g fill="none" stroke="#bca0a4" stroke-width="3" opacity=".8">
+    <path d="M1008 720V250h52v470M986 250h96M1008 250l26-52 26 52M1024 198v-60h20v60M1018 138h32M1022 118h24M1046 250l-20 72h40z"/>
+    <path d="M982 720h108M970 742h132M990 340h88M990 410h88M990 480h88M990 550h88M990 620h88"/>
+    <path d="M1000 330l34-38 34 38M1000 400l34-38 34 38M1000 470l34-38 34 38"/>
+  </g>
+  <g fill="#222" text-anchor="middle" font-family="Georgia, serif">
+    <text x="470" y="120" font-size="20">CS50 Certificate</text>
+    <text x="470" y="230" font-size="42">CS50 congratulates</text>
+    <text x="470" y="330" font-size="64" font-weight="bold">Edrean Ochieng</text>
+    <text x="470" y="395" font-size="22">on completing CS50's Introduction to Cybersecurity</text>
+    <text x="470" y="430" font-size="20">Harvard University · 2026</text>
+  </g>
+  <rect x="310" y="500" width="320" height="64" rx="32" fill="#1f7a60"/>
+  <text x="470" y="542" fill="#fff" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" letter-spacing="3">COMPLETED</text>
+  <path d="M380 650h180M402 680h136" stroke="#bca0a4" stroke-width="2"/>
+  <text x="470" y="735" fill="#555" text-anchor="middle" font-family="monospace" font-size="15" letter-spacing="2">CYBERSECURITY · CS50</text>
+</svg>
